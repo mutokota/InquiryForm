@@ -8,4 +8,4 @@ CREATE TABLE test_db.users (
 INSERT INTO
   `users`
 VALUES
-  (1, 'Fuku', 30)
+  (1, 'MUTO', 30)
