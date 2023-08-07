@@ -10,7 +10,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問合せフォーム</title>
-  <script src="./index.js"></script>
 </head>
 
 <body>
@@ -33,21 +32,23 @@
       </li>
       <li>
         <span>好きな言語</span>
-        <input type="checkbox" name="Javascript">
-        <label for="javascript">Javascript</label>
-        <input type="checkbox" name="PHP">
-        <label for="php">PHP</label>
-        <input type="checkbox" name="Ruby">
-        <label for="php">Ruby</label>
+        <div>
+          <input class="language" type="checkbox" name="Javascript">
+          <label for="javascript">Javascript</label>
+          <input class="language" type="checkbox" name="PHP">
+          <label for="php">PHP</label>
+          <input class="language" type="checkbox" name="Ruby">
+          <label for="Ruby">Ruby</label>
+        </div>
       </li>
       <li>
         <input id="file" type="file" name="file" accept="image/png, image/jpeg, application/pdf">
       </li>
     </ul>
     </li>
-    <input id="formbutton" type="submit" value="送信" onclick="spaceCheck()">
+    <input id="formbutton" type="submit" value="送信">
   </form>
-
+  <script src="./index.js"></script>
 </body>
 
 </html>
