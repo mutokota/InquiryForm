@@ -46,7 +46,7 @@
       </li>
     </ul>
     </li>
-    <input id="formbutton" type="submit" value="送信">
+    <button id="formbutton">送信</button>
   </form>
   <script src="./index.js"></script>
 </body>

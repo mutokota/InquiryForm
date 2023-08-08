@@ -1,44 +1,35 @@
 const formbutton = document.getElementById("formbutton");
-const errortext = "入力してください";
+const errortext = "必須項目に未入力がありました";
 
-//名前入力チェック
-function nameCheck() {
+formbutton.addEventListener("click", (event) => {
   const name = document.getElementById("name");
-  if (name.value == "") {
-    alert("名前を" + errortext);
-  } else {
-    return true;
-  }
-}
-//職業入力チェック
-function jobCheck() {
   const select = document.querySelector("select[name=job]");
-  if (select.value === "空欄") {
-    alert("職業を" + errortext);
-  } else {
-    return true;
-  }
-}
-//言語入力チェック
-function languageCheck() {
   const checkBoxList = document.querySelectorAll("input[type='checkbox']");
+  const file = document.getElementById("file");
+  let flag = 0;
+
   let checkedCount = 0;
   for (let i = 0; i < checkBoxList.length; i++) {
     if (checkBoxList[i].checked === true) {
       checkedCount++;
     }
   }
-  console.log(checkedCount);
-  if (checkedCount === 0) {
-    alert("言語を" + errortext);
+
+  if (name.value === "") {
+    flag = 1;
+  } else if (select.value === "空欄") {
+    flag = 1;
+  } else if (checkedCount === 0) {
+    flag = 1;
+  } else if (file.value === "") {
+    flag = 1;
+  }
+
+  if (flag) {
+    alert(errortext);
+    event.preventDefault();
+    location.href = "./index.php";
   } else {
     return true;
   }
-}
-
-formbutton.addEventListener("click", (event) => {
-  event.preventDefault();
-  //nameCheck();
-  //jobCheck();
-  languageCheck();
 });
