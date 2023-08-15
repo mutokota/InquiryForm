@@ -1,3 +1,25 @@
+// ① ユニークキーを発行
+const uniqueKey = "your_value_here"; // 自分で適切な方法でユニークキーを生成する関数を定義
+
+// ② PHPにユニークキーを送信
+fetch('form.php', {
+  method: 'POST',
+  body: JSON.stringify({ key: uniqueKey }),
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+.then(response => response.json())
+.then(data => {
+  if (data.status === "valid") {
+    console.log("Unique key is valid.");
+    // ユニークキーが有効な場合の処理
+  } else {
+    console.error("Unique key is not valid.");
+    // ユニークキーが無効な場合の処理
+  }
+});
+
 const formbutton = document.getElementById("formbutton");
 const errortext = "必須項目に未入力がありました";
 
@@ -28,7 +50,6 @@ formbutton.addEventListener("click", (event) => {
   if (flag) {
     alert(errortext);
     event.preventDefault();
-    location.href = "./index.php";
   } else {
     return true;
   }

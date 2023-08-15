@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <form id="form" action="" method="post">
+  <form id="form" action="form.php" method="post">
     <ul>
       <li> <label for="name">名前</label>
         <input id="name" type="text" name="name">
@@ -34,11 +34,11 @@
         <span>好きな言語</span>
         <div>
           <input class="language" type="checkbox" name="Javascript">
-          <label for="javascript">Javascript</label>
+          <label>Javascript</label>
           <input class="language" type="checkbox" name="PHP">
-          <label for="php">PHP</label>
+          <label>PHP</label>
           <input class="language" type="checkbox" name="Ruby">
-          <label for="Ruby">Ruby</label>
+          <label>Ruby</label>
         </div>
       </li>
       <li>

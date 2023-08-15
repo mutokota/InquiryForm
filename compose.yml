@@ -1,3 +1,6 @@
+volumes:
+  db-volume:
+  maildir: {}
 # 1番上の階層、決まり文句のようなもの。
 services:
   # 2番目の階層、作りたいコンテナを定義する。任意の名前をつけられる。
@@ -12,6 +15,7 @@ services:
     # ローカルPCとコンテナ間でディレクトリをバインド（同期）できる
     volumes:
       - ./app/src:/var/www/html/
+      - ./docker/build/php/php.ini:/usr/local/etc/php/php.ini:cached
     # 利用するネットワーク
     networks:
       - php-mysql-networks
@@ -44,6 +48,16 @@ services:
       - php-mysql-networks
     depends_on:
       - php-db
+  mail:
+    image: mailhog/mailhog:latest
+    container_name: mailhog
+    ports:
+      - 8025:8025
+    environment:
+      MH_STORAGE: maildir
+      MH_MAILDIR_PATH: /tmp
+    networks:
+      - php-mysql-networks
 # 任意のネットワークを作る(わかりやすくするため)
 networks:
   php-mysql-networks:
