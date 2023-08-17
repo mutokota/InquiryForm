@@ -1,24 +1,21 @@
-// ① ユニークキーを発行
-const uniqueKey = "your_value_here"; // 自分で適切な方法でユニークキーを生成する関数を定義
+const data = {
+  value: 123456789,
+}; // 渡したいデータ
 
-// ② PHPにユニークキーを送信
-fetch('form.php', {
-  method: 'POST',
-  body: JSON.stringify({ key: uniqueKey }),
-  headers: {
-    'Content-Type': 'application/json'
-  }
+fetch("form.php", {
+  // 第1引数に送り先
+  method: "POST", // メソッド指定
+  headers: { "Content-Type": "application/json" }, // jsonを指定
+  body: JSON.stringify(data), // json形式に変換して添付
 })
-.then(response => response.json())
-.then(data => {
-  if (data.status === "valid") {
-    console.log("Unique key is valid.");
-    // ユニークキーが有効な場合の処理
-  } else {
-    console.error("Unique key is not valid.");
-    // ユニークキーが無効な場合の処理
-  }
-});
+  .then((response) => response.json()) // 返ってきたレスポンスをjsonで受け取って次のthenへ渡す
+  .then((res) => {
+    console.log(res); // やりたい処理
+  })
+  .catch((error) => {
+    console.log(error); // エラー表示
+  });
+
 
 const formbutton = document.getElementById("formbutton");
 const errortext = "必須項目に未入力がありました";

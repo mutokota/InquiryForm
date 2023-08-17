@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <form id="form" action="form.php" method="post">
+  <form id="form" action="" method="post">
     <ul>
       <li> <label for="name">名前</label>
         <input id="name" type="text" name="name">

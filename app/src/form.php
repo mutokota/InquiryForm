@@ -1,32 +1,11 @@
 <?php
-// ユニークキーの取得
+$raw = file_get_contents('php://input'); // POSTされた生のデータを受け取る
+$data = json_decode($raw , true); // json形式をphp変数に変換
 
-$uniqueKey = filter_input(INPUT_GET, 'key');
-var_dump($uniqueKey);
-// ここでユニークキーの検証を行う
-if ($uniqueKey === "your_value_here") { // 自分で適切な方法でユニークキーを検証する関数を定義
-  $response = array("status" => "success");
-} else {
-  $response = array("status" => "error", "message" => "Invalid unique key.");
-}
-
-echo json_encode($response);
+$res = $data; // やりたい処理
+var_dump($raw);
+echo json_last_error_msg();
+// echoすると返せる
+ // json形式にして返す
 ?>
 
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>form</title>
-</head>
-
-<body>
-  <p><?= $_POST['name'] ?></p>
-  <p><?= $_POST['job'] ?></p>
-  <p><?= $_POST['gender'] ?></p>
-
-</body>
-
-</html>
