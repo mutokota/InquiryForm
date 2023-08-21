@@ -9,11 +9,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
   <title>お問合せフォーム</title>
 </head>
 
 <body>
-  <form id="form" action="" method="post">
+
+  <form id="form" action="form.php" method="post">
     <ul>
       <li> <label for="name">名前</label>
         <input id="name" type="text" name="name">
@@ -41,6 +43,7 @@
           <label>Ruby</label>
         </div>
       </li>
+      <li><input type="hidden" id="unique_key_input" name="unique_key" value=""></li>
       <li>
         <input id="file" type="file" name="file" accept="image/png, image/jpeg, application/pdf">
       </li>
@@ -48,6 +51,9 @@
     </li>
     <button id="formbutton">送信</button>
   </form>
+  <script>
+
+  </script>
   <script src="./index.js"></script>
 </body>
 

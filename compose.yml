@@ -15,7 +15,7 @@ services:
     # ローカルPCとコンテナ間でディレクトリをバインド（同期）できる
     volumes:
       - ./app/src:/var/www/html/
-      - ./docker/build/php/php.ini:/usr/local/etc/php/php.ini:cached
+      - ./docker/php/php.ini:/usr/local/etc/php/php.ini
     # 利用するネットワーク
     networks:
       - php-mysql-networks
@@ -52,7 +52,8 @@ services:
     image: mailhog/mailhog:latest
     container_name: mailhog
     ports:
-      - 8025:8025
+      - "8025:8025"
+      - "1025:1025"
     environment:
       MH_STORAGE: maildir
       MH_MAILDIR_PATH: /tmp

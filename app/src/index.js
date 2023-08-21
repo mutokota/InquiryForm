@@ -1,21 +1,15 @@
-const data = {
-  value: 123456789,
-}; // 渡したいデータ
-
-fetch("form.php", {
-  // 第1引数に送り先
-  method: "POST", // メソッド指定
-  headers: { "Content-Type": "application/json" }, // jsonを指定
-  body: JSON.stringify(data), // json形式に変換して添付
-})
-  .then((response) => response.json()) // 返ってきたレスポンスをjsonで受け取って次のthenへ渡す
-  .then((res) => {
-    console.log(res); // やりたい処理
-  })
-  .catch((error) => {
-    console.log(error); // エラー表示
-  });
-
+window.addEventListener("DOMContentLoaded", () => {
+  fetch("./form.php")
+    .then((response) => response.json()) // 返ってきたレスポンスをjsonで受け取って次のthenへ渡す
+    .then((res) => {
+      // やりたい処理
+      document.getElementById("unique_key_input").value = res;
+      console.log((document.getElementById("unique_key_input").value = res));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
 
 const formbutton = document.getElementById("formbutton");
 const errortext = "必須項目に未入力がありました";
@@ -51,3 +45,6 @@ formbutton.addEventListener("click", (event) => {
     return true;
   }
 });
+
+
+
