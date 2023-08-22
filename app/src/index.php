@@ -43,7 +43,7 @@
           <label>Ruby</label>
         </div>
       </li>
-      <li><input type="hidden" id="unique_key_input" name="unique_key" value=""></li>
+      <li><input type="text" id="unique_key_input" name="unique_key" value=""></li>
       <li>
         <input id="file" type="file" name="file" accept="image/png, image/jpeg, application/pdf">
       </li>

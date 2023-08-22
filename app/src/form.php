@@ -2,5 +2,6 @@
 
 // // ユニークキー生成
 $uniqueKey = uniqid();
-echo json_encode($uniqueKey);
+$_SESSION["data"] =
+  json_encode($uniqueKey);
 
