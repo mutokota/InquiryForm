@@ -1,1 +1,13 @@
-1
+Array
+(
+    [name] => adfhakfhaf
+    [job] => 会社員
+    [gender] => 男性
+    [Javascript] => on
+    [unique_key] => <br />
+<b>Warning</b>:  Undefined variable $unique_key in <b>/var/www/html/index.php</b> on line <b>50</b><br />
+
+    [file] => 2650440_s.png
+    [adminer_permanent] => 
+    [PHPSESSID] => 8ffeee275dd318aae8060d38c114e326
+)

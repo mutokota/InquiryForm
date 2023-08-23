@@ -1,9 +1,17 @@
 window.addEventListener("DOMContentLoaded", () => {
   fetch("./form.php")
-    .then((response) => response.json()) // 返ってきたレスポンスをjsonで受け取って次のthenへ渡す
+    .then((response) => response.json()) //返ってきたレスポンスをjsonで受け取って次のthenへ渡す
     .then((res) => {
-      // やりたい処理
-      console.log(res);
+      //やりたい処理
+      let uniquekeydata = document.getElementById("unique_key_input").value;
+      uniquekeydata = res;
+      return fetch("./form.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: uniquekeydata,
+      });
     })
     .catch((error) => {
       console.log(error);
