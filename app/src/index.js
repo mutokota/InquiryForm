@@ -1,27 +1,5 @@
-window.addEventListener("DOMContentLoaded", () => {
-  fetch("./form.php")
-    .then((response) => response.json()) //返ってきたレスポンスをjsonで受け取って次のthenへ渡す
-    .then((res) => {
-      //やりたい処理
-      let uniquekeydata = document.getElementById("unique_key_input").value;
-      uniquekeydata = res;
-      return fetch("./form.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: uniquekeydata,
-      });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-});
-
-const formbutton = document.getElementById("formbutton");
-const errortext = "必須項目に未入力がありました";
-
-formbutton.addEventListener("click", (event) => {
+function valueCheck(event) {
+  const errortext = "必須項目に未入力がありました";
   const name = document.getElementById("name");
   const select = document.querySelector("select[name=job]");
   const checkBoxList = document.querySelectorAll("input[type='checkbox']");
@@ -47,8 +25,26 @@ formbutton.addEventListener("click", (event) => {
 
   if (flag) {
     alert(errortext);
+    window.location.href = "./index.php";
     event.preventDefault();
   } else {
     return true;
   }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const formbutton = document.getElementById("formbutton");
+  formbutton.addEventListener("click", () => {
+    fetch("./form.php")
+      .then((response) => response.json()) //返ってきたレスポンスをjsonで受け取って次のthenへ渡す
+      .then((res) => {
+        //やりたい処理
+        console.log(res);
+        console.log("成功しました");
+        valueCheck();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
 });

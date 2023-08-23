@@ -1,7 +1,6 @@
 <?php
-// session_start();
-// $unique_key = $_SESSION["keydata"];
-// var_dump($_SESSION);
+session_start();
+$unique_key = $_SESSION["keydata"];
 
 
 ?>
